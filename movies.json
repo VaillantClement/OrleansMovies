@@ -10,7 +10,7 @@
                 "adventure",
                 "comedy"
             ],
-            "rate": "8.6",
+            "rate": 8.6,
             "length": "1hr 48mins",
             "img": "deadpool.jpg"
         },
@@ -24,7 +24,7 @@
                 "comedy",
                 "crime"
             ],
-            "rate": "7.0",
+            "rate": 7.0,
             "length": "1hr 50mins",
             "img": "we-are-the-millers.jpg"
         },
@@ -38,7 +38,7 @@
                 "drama",
                 "history"
             ],
-            "rate": "8.0",
+            "rate": 8.0,
             "length": "2hr 27mins",
             "img": "straight-outta-compton.jpg"
         },
@@ -52,7 +52,7 @@
                 "drama",
                 "sport"
             ],
-            "rate": "6.9",
+            "rate": 6.9,
             "length": "2hr 5mins",
             "img": "gridiron-gang.jpg"
         },
@@ -66,7 +66,7 @@
                 "crime",
                 "drama"
             ],
-            "rate": "7.8",
+            "rate": 7.8,
             "length": "2hr 37mins",
             "img": "american-gangster.jpg"
         },
@@ -80,7 +80,7 @@
                 "crime",
                 "drama"
             ],
-            "rate": "6.8",
+            "rate": 6.8,
             "length": "1hr 53mins",
             "img": "gangster-squad.jpg"
         },
@@ -94,7 +94,7 @@
                 "mystery",
                 "thriller"
             ],
-            "rate": "7.3",
+            "rate": 7.3,
             "length": "1hr 55mins",
             "img": "now-you-see-me.jpg"
         },
@@ -108,7 +108,7 @@
                 "adventure",
                 "scifi"
             ],
-            "rate": "7.1",
+            "rate": 7.1,
             "length": "2hr 4mins",
             "img": "jurassic-world.jpg"
         },
@@ -122,7 +122,7 @@
                 "adventure",
                 "thriller"
             ],
-            "rate": "7.5",
+            "rate": 7.5,
             "length": "2hr 11mins",
             "img": "mission-impossible-rogue-nation.jpg"
         },
@@ -136,7 +136,7 @@
                 "adventure",
                 "thriller"
             ],
-            "rate": "7.3",
+            "rate": 7.3,
             "length": "1hr 56mins",
             "img": "the-man-from-uncle.jpg"
         },
@@ -150,7 +150,7 @@
                 "adventure",
                 "thriller"
             ],
-            "rate": "6.9",
+            "rate": 6.9,
             "length": "2hr 28mins",
             "img": "spectre.jpg"
         },
@@ -164,7 +164,7 @@
                 "crime",
                 "drama"
             ],
-            "rate": "7.0",
+            "rate": 7.0,
             "length": "2hr 28mins",
             "img": "legend.jpg"
         },
@@ -178,7 +178,7 @@
                 "drama",
                 "sport"
             ],
-            "rate": "7.5",
+            "rate": 7.5,
             "length": "2hr 4mins",
             "img": "southpaw.jpg"
         },
@@ -192,7 +192,7 @@
                 "drama",
                 "thriller"
             ],
-            "rate": "7.7",
+            "rate": 7.7,
             "length": "2hr 22mins",
             "img": "bridge-of-spies.jpg"
         },
@@ -206,7 +206,7 @@
                 "adventure",
                 "scifi"
             ],
-            "rate": "7.4",
+            "rate": 7.4,
             "length": "1hr 57mins",
             "img": "ant-man.jpg"
         },
@@ -220,7 +220,7 @@
                 "crime",
                 "thriller"
             ],
-            "rate": "7.3",
+            "rate": 7.3,
             "length": "2hr 17mins",
             "img": "fast-and-furious-7.jpg"
         },
@@ -234,7 +234,7 @@
                 "crime",
                 "drama"
             ],
-            "rate": "5.6",
+            "rate": 5.6,
             "length": "1hr 34mins",
             "img": "tracers.jpg"
         },
@@ -248,7 +248,7 @@
                 "crime",
                 "drama"
             ],
-            "rate": "7.4",
+            "rate": 7.4,
             "length": "2hr 2mins",
             "img": "running-scared.jpg"
         },
@@ -260,7 +260,7 @@
             "genres": [
                 "comedy"
             ],
-            "rate": "7.8",
+            "rate": 7.8,
             "length": "1hr 40mins",
             "img": "the-hangover.jpg"
         },
@@ -273,7 +273,7 @@
                 "comedy",
                 "crime"
             ],
-            "rate": "6.7",
+            "rate": 6.7,
             "length": "1hr 28mins",
             "img": "project-x.jpg"
         },
@@ -287,7 +287,7 @@
                 "crime",
                 "drama"
             ],
-            "rate": "9.0",
+            "rate": 9.0,
             "length": "2hr 32mins",
             "img": "the-dark-knight.jpg"
         },
@@ -300,7 +300,7 @@
                 "action",
                 "thriller"
             ],
-            "rate": "6.1",
+            "rate": 6.1,
             "length": "1hr 35mins",
             "img": "the-tournament.jpg"
         },
@@ -313,7 +313,7 @@
                 "action",
                 "scifi"
             ],
-            "rate": "8.7",
+            "rate": 8.7,
             "length": "2hr 16mins",
             "img": "the-matrix.jpg"
         },
@@ -327,7 +327,7 @@
                 "comedy",
                 "crime"
             ],
-            "rate": "6.8",
+            "rate": 6.8,
             "length": "1hr 59mins",
             "img": "bad-boys.jpg"
         }

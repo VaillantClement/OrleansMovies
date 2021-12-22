@@ -2,7 +2,8 @@
 **Version: 1.0**
 ## Scenario
 
-You are tasked with creating an API for an application that the company is building for a client. The application is a movies indexing application that will have high volumes of traffic and thus it needs to be fast, efficient and robust while being secure at the same time.
+You are tasked with creating an API for an application that the company is building for a client. 
+The application is a movies indexing application that will have high volumes of traffic and thus it needs to be fast, efficient and robust while being secure at the same time.
 
 The application has the following functionality:
 
@@ -10,14 +11,18 @@ The application has the following functionality:
 
 - **Home**
   - List top 5 highest rated movies
+
 - **Movies List**
   - List Movies
   - Search
   - Filter by Genre
+
 - **Movie detail**
   - Display selected movie detail information
+
 - **Create Movie**
   - Create a new movie that can be retrieved in the movies list
+
 - **Update Movie**
   - Update movies data.  
 
