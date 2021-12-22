@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Movies.Contracts\Movies.Contracts.csproj" />
+    <ProjectReference Include="..\Movies.DAL\Movies.DAL.csproj" />
   </ItemGroup>
 
 </Project>

@@ -11,6 +11,7 @@ using System.IO;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using Movies.Grains;
+using Movies.DAL;
 
 namespace Movies.Server
 {
@@ -89,7 +90,7 @@ namespace Movies.Server
 							}
 						})
 						.ConfigureApplicationParts(parts => parts
-							.AddApplicationPart(typeof(SampleGrain).Assembly).WithReferences()
+							.AddApplicationPart(typeof(MovieGrain).Assembly).WithReferences()
 						)
 						.AddIncomingGrainCallFilter<LoggingIncomingCallFilter>()
 					;
@@ -98,6 +99,7 @@ namespace Movies.Server
 				.ConfigureServices((ctx, services) =>
 				{
 					services.AddHostedService<ApiHostedService>();
+					services.AddSingleton<ReferenceDataService>();
 				})
 				;
 
