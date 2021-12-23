@@ -21,7 +21,7 @@ namespace Movies.GrainClients
 			return grain.Get();
 		}
 
-		public Task Set(int id, string name, string description, string img, string key, string length, decimal rate)
+		public Task Set(long id, string name, string description, string img, string key, string length, decimal rate)
 		{
 			var grain = _grainFactory.GetGrain<IMovieGrain>(id);
 			return grain.Set(name, description, img, key, length, rate);

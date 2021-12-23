@@ -52,6 +52,17 @@ namespace Movies.Server.Controllers
 			return result;
 		}
 
+		[HttpPost("{id}")]
+		public async Task Set(
+			[FromRoute] long id, 
+			[FromForm] string name,
+			[FromForm] string description,
+			[FromForm] string img,
+			[FromForm] string key,
+			[FromForm] string length,
+			[FromForm] decimal rate) 
+			=> await _client.Set(id, name, description, img, key, length, rate).ConfigureAwait(false);
+
 		[HttpPost("Create")]
 		public async Task<MovieModel> Create(
 			[FromForm] string name, 
