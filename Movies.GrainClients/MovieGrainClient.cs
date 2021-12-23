@@ -15,7 +15,7 @@ namespace Movies.GrainClients
 			_grainFactory = grainFactory;
 		}
 
-		public Task<MovieModel> Get(int id)
+		public Task<MovieModel> Get(long id)
 		{
 			var grain = _grainFactory.GetGrain<IMovieGrain>(id);
 			return grain.Get();

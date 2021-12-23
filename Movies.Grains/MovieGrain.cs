@@ -13,7 +13,8 @@ namespace Movies.Grains
 		private readonly ReferenceDataService _referenceDataService;
 
 		public MovieGrain(
-			ReferenceDataService referenceDataService)
+			ReferenceDataService referenceDataService
+		)
 		{
 			_referenceDataService = referenceDataService;
 		}

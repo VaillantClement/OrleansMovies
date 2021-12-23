@@ -14,7 +14,7 @@ namespace Movies.DAL
 			var dbPath = Path.Combine(Environment.CurrentDirectory, "Data/Movies.db");
 			var builder = new SqliteConnectionStringBuilder($"Data Source={dbPath};")
 			{
-				Mode = SqliteOpenMode.ReadOnly,
+				Mode = SqliteOpenMode.ReadWriteCreate,
 				Cache = SqliteCacheMode.Shared,
 			};
 
@@ -22,12 +22,38 @@ namespace Movies.DAL
 			_scheduler = new ConcurrentExclusiveSchedulerPair(TaskScheduler.Default, maxConcurrencyLevel: 1).ExclusiveScheduler;
 		}
 
+		public Task<long> CreateMovieAsync(MovieModel movie) =>
+			Task.Factory.StartNew(() =>
+			{
+				using var connection = new SqliteConnection(_connectionString);
+				connection.Open();
+				var insertCmd = new SqliteCommand($"insert into movies (name, description, img, key, length, rate) Values ($name, $description, $img, $key, $length, $rate)", connection);
+				insertCmd.Parameters.AddWithValue("$name", movie.Name);
+				insertCmd.Parameters.AddWithValue("$description", movie.Description);
+				insertCmd.Parameters.AddWithValue("$img", movie.Img);
+				insertCmd.Parameters.AddWithValue("$key", movie.Key);
+				insertCmd.Parameters.AddWithValue("$length", movie.Length);
+				insertCmd.Parameters.AddWithValue("$rate", movie.Rate);
+				insertCmd.Prepare();
+				insertCmd.ExecuteNonQuery();
+
+				var cmd = new SqliteCommand($"select Id from movies where Key=$key limit 1", connection);
+				cmd.Parameters.AddWithValue("$key", movie.Key);
+				cmd.Prepare();
+
+				var reader = cmd.ExecuteReader();
+				return ReadAllAsMovieId(reader).First();
+			},
+			CancellationToken.None,
+			TaskCreationOptions.RunContinuationsAsynchronously,
+			_scheduler);
+
 		public Task<List<long>> QueryMostRatedMovieIdsAsync() =>
 			Task.Factory.StartNew(() =>
 			{
 				using var connection = new SqliteConnection(_connectionString);
 				connection.Open();
-				var cmd = new SqliteCommand("select * from movies order by rate desc limit 5", connection);
+				var cmd = new SqliteCommand("select Id from movies order by rate desc limit 5", connection);
 				cmd.Prepare();
 
 				var reader = cmd.ExecuteReader();
@@ -43,7 +69,7 @@ namespace Movies.DAL
 			{
 				using var connection = new SqliteConnection(_connectionString);
 				connection.Open();
-				var cmd = new SqliteCommand("select * from movies", connection);
+				var cmd = new SqliteCommand("select Id from movies", connection);
 				cmd.Prepare();
 
 				var reader = cmd.ExecuteReader();
@@ -58,7 +84,7 @@ namespace Movies.DAL
 			{
 				using var connection = new SqliteConnection(_connectionString);
 				connection.Open();
-				var cmd = new SqliteCommand($"select * from movies where Name like '%{query}%'", connection);
+				var cmd = new SqliteCommand($"select Id from movies where Name like '%{query}%'", connection);
 				cmd.Prepare();
 
 				var reader = cmd.ExecuteReader();
