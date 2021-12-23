@@ -3,6 +3,7 @@ using Movies.Contracts;
 
 namespace Movies.Server.Gql.Types
 {
+	/*
 	public class SampleDataGraphType : ObjectGraphType<SampleDataModel>
 	{
 		public SampleDataGraphType()
@@ -14,4 +15,5 @@ namespace Movies.Server.Gql.Types
 			Field(x => x.Name, nullable: true).Description("Name.");
 		}
 	}
+	*/
 }

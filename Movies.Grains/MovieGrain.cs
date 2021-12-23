@@ -48,12 +48,8 @@ namespace Movies.Grains
 				if (result is { Count: > 0 } && result.FirstOrDefault() is MovieModel movie)
 				{
 					State = movie;
-
-					// Write the state but don't wait for completion. If it fails, we will write it next time. 
-					//State.WriteStateAsync().Ignore();
 				}
 			}
 		}
-
 	}
 }

@@ -22,6 +22,52 @@ namespace Movies.DAL
 			_scheduler = new ConcurrentExclusiveSchedulerPair(TaskScheduler.Default, maxConcurrencyLevel: 1).ExclusiveScheduler;
 		}
 
+		public Task<List<long>> QueryMostRatedMovieIdsAsync() =>
+			Task.Factory.StartNew(() =>
+			{
+				using var connection = new SqliteConnection(_connectionString);
+				connection.Open();
+				var cmd = new SqliteCommand("select * from movies order by rate desc limit 5", connection);
+				cmd.Prepare();
+
+				var reader = cmd.ExecuteReader();
+				return ReadAllAsMovieId(reader);
+			},
+			CancellationToken.None,
+			TaskCreationOptions.RunContinuationsAsynchronously,
+			_scheduler);
+
+
+		public Task<List<long>> QueryAllIdsAsync() =>
+			Task.Factory.StartNew(() =>
+			{
+				using var connection = new SqliteConnection(_connectionString);
+				connection.Open();
+				var cmd = new SqliteCommand("select * from movies", connection);
+				cmd.Prepare();
+
+				var reader = cmd.ExecuteReader();
+				return ReadAllAsMovieId(reader);
+			},
+			CancellationToken.None,
+			TaskCreationOptions.RunContinuationsAsynchronously,
+			_scheduler);
+
+		public Task<List<long>> QueryByNameAsync(string query) =>
+			Task.Factory.StartNew(() =>
+			{
+				using var connection = new SqliteConnection(_connectionString);
+				connection.Open();
+				var cmd = new SqliteCommand($"select * from movies where Name like '%{query}%'", connection);
+				cmd.Prepare();
+
+				var reader = cmd.ExecuteReader();
+				return ReadAllAsMovieId(reader);
+			},
+			CancellationToken.None,
+			TaskCreationOptions.RunContinuationsAsynchronously,
+			_scheduler);
+
 		public Task<List<MovieModel>> QueryByIdAsync(string query) => 
 			Task.Factory.StartNew(() =>
 			{
@@ -37,6 +83,20 @@ namespace Movies.DAL
 			CancellationToken.None,
 			TaskCreationOptions.RunContinuationsAsynchronously,
 			_scheduler);
+
+		private static List<long> ReadAllAsMovieId(DbDataReader reader)
+		{
+			int rowIdColId = reader.GetOrdinal("Id");
+
+			var results = new List<long>();
+			while (reader.Read())
+			{
+				var result = reader.GetInt32(rowIdColId);
+				results.Add(result);
+			}
+
+			return results;
+		}
 
 		private static List<MovieModel> ReadAllAsMovie(DbDataReader reader)
 		{

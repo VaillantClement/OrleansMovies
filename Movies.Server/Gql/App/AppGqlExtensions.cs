@@ -20,7 +20,7 @@ namespace Movies.Server.Gql.App
 			services.AddSingleton<AppGraphQuery>();
 			services.AddSingleton<AppGraphMutation>();
 
-			services.AddSingleton<SampleDataGraphType>();
+			//services.AddSingleton<SampleDataGraphType>();
 		}
 	}
 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Movies.Contracts;
-using Movies.DAL;
 
 namespace Movies.GrainClients
 {
@@ -8,8 +7,8 @@ namespace Movies.GrainClients
 	{
 		public static void AddAppClients(this IServiceCollection services)
 		{
-			services.AddSingleton<ISampleGrainClient, SampleGrainClient>();
 			services.AddSingleton<IMovieGrainClient, MovieGrainClient>();
+			services.AddSingleton<ISearchGrainClient, SearchGrainClient>();
 		}
 	}
 }
