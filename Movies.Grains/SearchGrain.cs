@@ -16,7 +16,7 @@ namespace Movies.Grains
 		private readonly ReferenceDataService _searchDatabase;
 		private List<MovieModel> _cachedResult;
 		private string _cachedQuery;
-		private Stopwatch _timeSinceLastUpdate = new Stopwatch();
+		private readonly Stopwatch _timeSinceLastUpdate = new Stopwatch();
 
 		public SearchGrain(
 			IGrainFactory grainFactory,
@@ -31,7 +31,7 @@ namespace Movies.Grains
 			var query = "mostrated";
 
 			// If the query has already been performed, return the result from cache.
-			if (_cachedResult is object
+			if (_cachedResult is not null
 				&& _timeSinceLastUpdate.Elapsed < TimeSpan.FromSeconds(10)
 				&& query.Equals(_cachedQuery, StringComparison.InvariantCultureIgnoreCase))
 			{
@@ -71,7 +71,7 @@ namespace Movies.Grains
 			var query = "all";
 
 			// If the query has already been performed, return the result from cache.
-			if (_cachedResult is object 
+			if (_cachedResult is not null
 				&& _timeSinceLastUpdate.Elapsed < TimeSpan.FromSeconds(10)
 				&& query.Equals(_cachedQuery, StringComparison.InvariantCultureIgnoreCase))
 			{
@@ -112,7 +112,7 @@ namespace Movies.Grains
 			var query = this.GetPrimaryKeyString();
 
 			// If the query has already been performed, return the result from cache.
-			if (_cachedResult is object 
+			if (_cachedResult is not null
 				&& _timeSinceLastUpdate.Elapsed < TimeSpan.FromSeconds(10)
 				&& query.Equals(_cachedQuery, StringComparison.InvariantCultureIgnoreCase))
 			{

@@ -63,6 +63,21 @@ namespace Movies.DAL
 			TaskCreationOptions.RunContinuationsAsynchronously,
 			_scheduler);
 
+		public Task<List<long>> QueryAllIdsByGenreAsync(long genreId) =>
+			Task.Factory.StartNew(() =>
+			{
+				using var connection = new SqliteConnection(_connectionString);
+				connection.Open();
+				var cmd = new SqliteCommand("SELECT distinct Movies.Id from Movies INNER JOIN MoviesGenres ON Movies.Id = MoviesGenres.MovieId WHERE MoviesGenres.GenreId = $genreId", connection);
+				cmd.Parameters.AddWithValue("$genreId", genreId);
+				cmd.Prepare();
+
+				var reader = cmd.ExecuteReader();
+				return ReadAllAsMovieId(reader);
+			},
+			CancellationToken.None,
+			TaskCreationOptions.RunContinuationsAsynchronously,
+			_scheduler);
 
 		public Task<List<long>> QueryAllIdsAsync() =>
 			Task.Factory.StartNew(() =>

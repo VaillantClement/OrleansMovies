@@ -12,6 +12,7 @@ namespace Movies.GrainClients
 
 			services.AddSingleton<IMovieGrainClient, MovieGrainClient>();
 			services.AddSingleton<ISearchGrainClient, SearchGrainClient>();
+			services.AddSingleton<IGenreGrainClient, GenreGrainClient>();
 		}
 	}
 }
