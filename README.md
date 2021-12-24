@@ -1,5 +1,6 @@
 # Movies Microservice
-**Version: 1.0**
+**Version: 2.0**
+
 ## Scenario
 
 You are tasked with creating an API for an application that the company is building for a client. 
@@ -82,3 +83,129 @@ If you get the demo in good shape and have extra time, add your own flair and fe
   - Provide steps how to build/launch your application
 
 Good luck!
+
+
+### GraphQL queries
+
+- GraphQL query to get all movies:
+```
+query
+{
+  movies {
+      id
+      key
+      name
+      description
+      img
+      length
+      rate
+  }
+}
+```
+
+- GraphQL query to get the 5 most rated movies:
+```
+query
+{
+  mostratedmovies {
+      id
+      key
+      name
+      description
+      img
+      length
+      rate
+  }
+}
+```
+
+- GraphQL query to get movie details:
+```
+query($id: String)
+{
+  movie(id: $id) {
+    id
+    key
+    name
+    description
+    img
+    length
+    rate
+  }
+}
+```
+with query variables 
+
+```
+{"id": "1"}
+```
+
+- GraphQL query to get movie details:
+```
+query($query: String)
+{
+  searchmovie(query: $query) {
+    id
+    key
+    name
+    description
+    img
+    length
+    rate
+  }
+}
+```
+with query variables 
+```
+{"query": "gang"}
+```
+
+- GraphQL query to get movie by genre ID:
+```
+query($genreid: String)
+{
+  searchmoviebygenreid(genreid: $genreid) {
+    id
+    key
+    name
+    description
+    img
+    length
+    rate
+  }
+}
+```
+with query variables 
+```
+{"genreid": "3"}
+```
+
+- GraphQL query to update a movie:
+```
+mutation ($movie: InputMovie!) {
+  updateMovie(movie: $movie) {
+    id
+    key
+    name
+    description
+    img
+    length
+    rate
+  }
+}
+```
+with query variables 
+```
+{
+  "movie": 
+  {
+  	"id": "1",
+    "key": "deadpool2",
+    "name": "Deadpool 2",
+    "description": "A former Special Forces operative turned mercenary is subjected to a rogue experiment that leaves him with accelerated healing powers, adopting the alter ego Deadpool.",
+    "img": "deadpool.jpg",
+    "length": "1hr 48mins",
+    "rate": 8.6
+	}
+}
+```

@@ -127,7 +127,7 @@ namespace Movies.DAL
 
 		private static List<long> ReadAllAsMovieId(DbDataReader reader)
 		{
-			int rowIdColId = reader.GetOrdinal("Id");
+			var rowIdColId = reader.GetOrdinal("Id");
 
 			var results = new List<long>();
 			while (reader.Read())
@@ -141,13 +141,13 @@ namespace Movies.DAL
 
 		private static List<MovieModel> ReadAllAsMovie(DbDataReader reader)
 		{
-			int rowIdColId = reader.GetOrdinal("Id");
-			int keyColId = reader.GetOrdinal("Key");
-			int nameColId = reader.GetOrdinal("Name");
-			int descriptionColId = reader.GetOrdinal("Description");
-			int rateColId = reader.GetOrdinal("Rate");
-			int lengthColId = reader.GetOrdinal("Length");
-			int imgColId = reader.GetOrdinal("Img");
+			var rowIdColId = reader.GetOrdinal("Id");
+			var keyColId = reader.GetOrdinal("Key");
+			var nameColId = reader.GetOrdinal("Name");
+			var descriptionColId = reader.GetOrdinal("Description");
+			var rateColId = reader.GetOrdinal("Rate");
+			var lengthColId = reader.GetOrdinal("Length");
+			var imgColId = reader.GetOrdinal("Img");
 
 			var results = new List<MovieModel>();
 			while (reader.Read())
