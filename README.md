@@ -209,3 +209,31 @@ with query variables
 	}
 }
 ```
+
+- GraphQL query to create a movie:
+```
+mutation ($movie: InputMovie!) {
+  addMovie(movie: $movie) {
+    key
+    name
+    description
+    img
+    length
+    rate
+  }
+}
+```
+with query variables 
+```
+{
+  "movie": 
+  {
+    "key": "fast-and-furious-7",
+    "name": "Fast & Furious 7",
+    "description": "Deckard Shaw seeks revenge against Dominic Toretto and his family for his comatose brother.",
+    "img": "fast-and-furious-7.jpg",
+    "length": "2hr 17mins",
+    "rate": 7.3
+  }
+}
+```
