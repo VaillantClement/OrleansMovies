@@ -182,7 +182,7 @@ with query variables
 
 - GraphQL query to update a movie:
 ```
-mutation ($movie: InputMovie!) {
+mutation ($movie: UpdateMovie!) {
   updateMovie(movie: $movie) {
     id
     key

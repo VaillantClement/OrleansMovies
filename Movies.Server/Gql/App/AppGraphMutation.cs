@@ -13,9 +13,22 @@ namespace Movies.Server.Gql.App
 		{
 			Name = "AppGraphMutation";
 
-			Field<MovieGraphType>("updateMovie",
+			Field<MovieGraphType>("addMovie",
 			  arguments: new QueryArguments(
 				new QueryArgument<NonNullGraphType<InputMovieGraphType>> { Name = "movie" }
+			  ),
+			  resolve: context =>
+			  {
+				  var movie = context.GetArgument<MovieModel>("movie");
+
+				  var returnMovie = movieClient.Create(movie.Name, movie.Description, movie.Img, movie.Key, movie.Length, movie.Rate);
+
+				  return returnMovie;
+			  });
+
+			Field<MovieGraphType>("updateMovie",
+			  arguments: new QueryArguments(
+				new QueryArgument<NonNullGraphType<UpdateMovieGraphType>> { Name = "movie" }
 			  ),
 			  resolve: context =>
 			  {

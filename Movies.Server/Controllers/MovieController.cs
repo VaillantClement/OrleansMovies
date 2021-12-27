@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Movies.Contracts;
-using Movies.DAL;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,16 +11,13 @@ namespace Movies.Server.Controllers
 		private readonly IMovieGrainClient _movieClient;
 		private readonly ISearchGrainClient _searchClient;
 		private readonly IGenreGrainClient _genreClient;
-		private readonly ReferenceDataService _referenceDataService;
 
 		public MovieController(
-			ReferenceDataService referenceDataService,
 			IMovieGrainClient movieClient,
 			ISearchGrainClient searchClient,
 			IGenreGrainClient genreClient
 		)
 		{
-			_referenceDataService = referenceDataService;
 			_movieClient = movieClient;
 			_searchClient = searchClient;
 			_genreClient = genreClient;
@@ -81,23 +77,6 @@ namespace Movies.Server.Controllers
 			[FromForm] string key,
 			[FromForm] string length,
 			[FromForm] decimal rate
-		)
-		{
-			var movie = new MovieModel()
-			{
-				Name = name,
-				Description = description,
-				Img = img,
-				Key = key,
-				Length = length,
-				Rate = rate
-			};
-
-			var id = await _referenceDataService.CreateMovieAsync(movie);
-
-			var result = await _movieClient.Get(id).ConfigureAwait(false);
-			return result;
-		}
-
+		) => await _movieClient.Create(name, description, img, key, length, rate).ConfigureAwait(false);
 	}
 }

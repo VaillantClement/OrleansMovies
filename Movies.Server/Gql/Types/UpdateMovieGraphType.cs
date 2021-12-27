@@ -3,12 +3,13 @@ using Movies.Contracts;
 
 namespace Movies.Server.Gql.Types
 {
-	public class InputMovieGraphType : InputObjectGraphType
+	public class UpdateMovieGraphType : InputObjectGraphType
 	{
-		public InputMovieGraphType()
+		public UpdateMovieGraphType()
 		{
-			Name = "InputMovie";
+			Name = "UpdateMovie";
 
+			Field<NonNullGraphType<StringGraphType>>("id");
 			Field<StringGraphType>("key");
 			Field<StringGraphType>("name");
 			Field<StringGraphType>("description");

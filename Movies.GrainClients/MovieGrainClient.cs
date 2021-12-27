@@ -1,5 +1,6 @@
 ﻿using Movies.Contracts;
 using Orleans;
+using System;
 using System.Threading.Tasks;
 
 namespace Movies.GrainClients
@@ -21,6 +22,15 @@ namespace Movies.GrainClients
 			return grain.Get();
 		}
 
+		public Task<MovieModel> Create(string name, string description, string img, string key, string length, decimal rate)
+		{
+			var grain = _grainFactory.GetGrain<ICreateMovieGrain>(Guid.NewGuid());
+			var id = grain.Create(name, description, img, key, length, rate).Result;
+
+			var movieGrain = _grainFactory.GetGrain<IMovieGrain>(id);
+			return movieGrain.Get();
+		}
+		
 		public Task Set(long id, string name, string description, string img, string key, string length, decimal rate)
 		{
 			var grain = _grainFactory.GetGrain<IMovieGrain>(id);
