@@ -39,7 +39,7 @@ namespace Movies.Server.Gql.App
 				resolve: ctx => searchClient.Get(ctx.Arguments["query"].ToString())
 			);
 
-			Field<ListGraphType<MovieGraphType>>("searchmoviebygenreid",
+			Field<ListGraphType<MovieGraphType>>("getallbygenre",
 				arguments: new QueryArguments(new QueryArgument<StringGraphType>
 				{
 					Name = "genreid"

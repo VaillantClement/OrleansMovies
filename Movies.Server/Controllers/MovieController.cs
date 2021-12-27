@@ -30,7 +30,7 @@ namespace Movies.Server.Controllers
 			return result;
 		}
 
-		[HttpGet("getallbygenres/{genreId}")]
+		[HttpGet("getallbygenre/{genreId}")]
 		public async Task<List<MovieModel>> GetAllByGenre(long genreId)
 		{
 			var result = await _genreClient.GetMoviesByGenre(genreId).ConfigureAwait(false);

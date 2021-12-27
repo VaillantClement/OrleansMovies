@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "da7d2f95-c2ba-4dca-8f32-c364dd89f5a2",
+		"name": "OrleansMovies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6600/api/movie/getall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6600",
+					"path": [
+						"api",
+						"movie",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Movies By Genre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6600/api/movie/getallbygenre/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6600",
+					"path": [
+						"api",
+						"movie",
+						"getallbygenre",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get 5 Most rate movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6600/api/movie/GetMostRated",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6600",
+					"path": [
+						"api",
+						"movie",
+						"GetMostRated"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search For a movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6600/api/movie/Search/gang",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6600",
+					"path": [
+						"api",
+						"movie",
+						"Search",
+						"gang"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6600/api/movie/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6600",
+					"path": [
+						"api",
+						"movie",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Movie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Running Scared",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "A low-ranking thug is entrusted by his crime boss to dispose of a gun that killed corrupt cops, but things get out of control when the gun ends up in wrong hands.",
+							"type": "text"
+						},
+						{
+							"key": "img",
+							"value": "running-scared.jpg",
+							"type": "text"
+						},
+						{
+							"key": "key",
+							"value": "running-scared",
+							"type": "text"
+						},
+						{
+							"key": "length",
+							"value": "2hr 2mins",
+							"type": "text"
+						},
+						{
+							"key": "rate",
+							"value": "7.4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:6600/api/movie/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6600",
+					"path": [
+						"api",
+						"movie",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Movie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Bad Boys",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Two hip detectives protect a murder witness while investigating a case of stolen heroin.",
+							"type": "text"
+						},
+						{
+							"key": "img",
+							"value": "bad-boys.jpg",
+							"type": "text"
+						},
+						{
+							"key": "key",
+							"value": "bad-boys",
+							"type": "text"
+						},
+						{
+							"key": "length",
+							"value": "1hr 59mins",
+							"type": "text"
+						},
+						{
+							"key": "rate",
+							"value": "6.8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:6600/api/movie/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6600",
+					"path": [
+						"api",
+						"movie",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
